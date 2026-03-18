@@ -4,7 +4,7 @@ import { Flame, Facebook, Instagram, Youtube, Phone, Mail, MapPin, Twitter } fro
 import {motion} from "framer-motion";
 
 export const MarathonFooter = () => (
-  <footer className="bg-[#030303] border-t border-white/[0.04] py-16">
+  <footer className="bg-marathon-darker border-t border-white/[0.04] py-16">
     <div className="max-w-6xl mx-auto px-5 sm:px-8">
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div className="flex flex-col gap-5">
