@@ -1,0 +1,35 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { ListOrdered, Clock } from "lucide-react";
+
+export const MarathonResults = () => (
+  <section id="resultados" className="py-28 bg-black">
+    <div className="max-w-3xl mx-auto px-5 sm:px-8">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center"
+      >
+        <span className="inline-block text-[11px] font-bold tracking-[0.3em] uppercase text-marathon-green mb-4">
+          Resultados
+        </span>
+        <h2 className="text-3xl sm:text-5xl font-black text-white mb-8">
+          Tabla de resultados
+        </h2>
+
+        <div className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-12 sm:p-16">
+          <div className="flex items-center justify-center gap-4 text-gray-800 mb-5">
+            <ListOrdered size={28} />
+            <Clock size={28} />
+          </div>
+          <p className="text-lg font-bold text-gray-500 mb-2">Disponible después del evento</p>
+          <p className="text-sm text-gray-700 max-w-sm mx-auto">
+            Los resultados oficiales, tiempos y certificados se publicarán aquí el 25 de marzo de 2026.
+          </p>
+        </div>
+      </motion.div>
+    </div>
+  </section>
+);

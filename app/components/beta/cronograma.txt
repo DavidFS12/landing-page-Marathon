@@ -1,0 +1,51 @@
+import { motion } from "framer-motion";
+import { ClipboardList, Dumbbell, Play, Award } from "lucide-react";
+
+const schedule = [
+  { time: "04:30", label: "Acreditación e inscripción en sitio", icon: ClipboardList, color: "bg-marathon-orange" },
+  { time: "05:15", label: "Calentamiento general con instructores", icon: Dumbbell, color: "bg-marathon-green" },
+  { time: "05:30", label: "Partida categoría 42K", icon: Play, color: "bg-marathon-orange" },
+  { time: "06:00", label: "Partida categoría 21K", icon: Play, color: "bg-marathon-green" },
+  { time: "06:30", label: "Partida categorías 10K y 5K", icon: Play, color: "bg-marathon-orange" },
+  { time: "11:00", label: "Ceremonia de premiación", icon: Award, color: "bg-marathon-green" },
+];
+
+export const MarathonSchedule = () => (
+  <section id="programa" className="py-28 bg-black">
+    <div className="max-w-3xl mx-auto px-5 sm:px-8">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center mb-16"
+      >
+        <span className="inline-block text-[11px] font-bold tracking-[0.3em] uppercase text-marathon-green mb-4">
+          Programa
+        </span>
+        <h2 className="text-3xl sm:text-5xl font-black text-white">
+          Día de la carrera
+        </h2>
+      </motion.div>
+
+      <div className="space-y-3">
+        {schedule.map((item, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.06 }}
+            className="flex items-center gap-4 bg-white/[0.02] border border-white/[0.06] rounded-xl px-5 py-4 hover:bg-white/[0.04] hover:border-white/[0.1] transition-all group"
+          >
+            <div className={`w-2 h-2 rounded-full ${item.color} flex-shrink-0`} />
+            <span className="font-mono font-bold text-lg text-white w-14 flex-shrink-0">
+              {item.time}
+            </span>
+            <item.icon size={16} className="text-gray-700 flex-shrink-0 group-hover:text-gray-500 transition-colors" />
+            <span className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">{item.label}</span>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
